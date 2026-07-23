@@ -3,9 +3,9 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.uking.uk"),
-  title: "域擎 UKing｜让 AI 进入企业业务",
+  title: "域擎 UKing｜企业 AI 解决方案平台",
   description:
-    "域擎提供让 AI 进入企业业务的解决方案，以太擎企业级智能体开发平台和旷湖大数据开发平台为技术底座。",
+    "域擎融合太擎的企业级智能体能力与旷湖的数据工程能力，由 FDE 深入业务现场，为企业构建可上线、可度量、可持续迭代的 AI 解决方案。",
   alternates: {
     canonical: "/",
   },
@@ -15,9 +15,9 @@ export const metadata: Metadata = {
     apple: "/favicon.png",
   },
   openGraph: {
-    title: "域擎 UKing｜让 AI 进入企业业务",
+    title: "域擎 UKing｜企业 AI 解决方案平台",
     description:
-      "以太擎和旷湖为技术底座，为企业提供可落地、可运营的 AI 解决方案。",
+      "让 AI 进入现场，解决真实问题。融合太擎、旷湖与 FDE 现场交付，为企业构建可持续运行的 AI 业务系统。",
     type: "website",
     locale: "zh_CN",
     siteName: "域擎 UKing",
@@ -26,14 +26,14 @@ export const metadata: Metadata = {
         url: "/og-uking-v2.png",
         width: 1200,
         height: 630,
-        alt: "域擎 UKing - 让 AI 进入企业业务",
+        alt: "域擎 UKing - 企业 AI 解决方案平台",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "域擎 UKing｜让 AI 进入企业业务",
-    description: "以太擎和旷湖为技术底座，为企业提供可落地、可运营的 AI 解决方案。",
+    title: "域擎 UKing｜企业 AI 解决方案平台",
+    description: "让 AI 进入现场，解决真实问题。融合太擎、旷湖与 FDE 现场交付。",
     images: ["/og-uking-v2.png"],
   },
 };
