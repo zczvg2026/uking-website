@@ -1,51 +1,51 @@
 const platformLayers = [
   {
     index: "01",
-    title: "数据智能底座",
+    title: "旷湖大数据开发平台",
     description:
-      "打通企业内外部数据，完成采集、治理、融合与洞察，为智能决策提供可信数据基础。",
-    tags: ["数据治理", "标签画像", "指标体系"],
+      "作为域擎解决方案的数据底座，打通企业内外部数据，完成采集、治理、开发与服务化，为 AI 提供可信的数据上下文。",
+    tags: ["数据开发", "数据治理", "数据服务"],
   },
   {
     index: "02",
-    title: "大模型智能中台",
+    title: "太擎企业级智能体开发平台",
     description:
-      "融合主流大模型与企业知识，通过 Agent 编排、RAG 与工具调用，构建可执行的业务智能。",
-    tags: ["AI Agent", "企业知识库", "模型路由"],
+      "作为域擎解决方案的技术底座，融合主流大模型、企业知识与业务工具，快速开发可执行、可运营的企业级智能体。",
+    tags: ["Agent 开发", "企业知识库", "工具编排"],
   },
   {
     index: "03",
-    title: "行业应用平台",
+    title: "域擎企业 AI 解决方案",
     description:
-      "面向营销、招商、销售与服务场景，快速组合业务流程，让智能能力真正进入一线。",
-    tags: ["低代码", "自动化流程", "多端协同"],
+      "面向真实业务目标组合数据、智能体与行业方法论，让 AI 进入企业流程，并以域擎滴灌营销系统等产品交付业务结果。",
+    tags: ["业务咨询", "场景落地", "持续运营"],
   },
 ];
 
 const solutions = [
   {
     number: "01",
-    title: "瀑布营销",
-    subtitle: "从公域获客到私域转化",
+    title: "域擎滴灌营销系统",
+    subtitle: "持续触达 · 精准培育 · 智能转化",
     description:
-      "以 AI 获客系统、私域精细化运营与公域精准获客为核心，形成可度量、可复用的营销增长闭环。",
-    highlights: ["6 万家企业验证", "智能触达与跟进", "全链路数据归因"],
+      "围绕客户全生命周期，以数据识别需求、以 AI 持续培育、以任务驱动跟进，让每一次触达像滴灌一样精准、连续且可衡量。",
+    highlights: ["客户分层培育", "AI 持续跟进", "全链路效果归因"],
   },
   {
     number: "02",
-    title: "AI Native 产品矩阵",
-    subtitle: "让每个岗位拥有专属智能体",
+    title: "企业智能体解决方案",
+    subtitle: "基于太擎的智能体开发能力",
     description:
-      "覆盖 B2B 数字销售、SalesGPT、B2C 电商与全域销售分析，把经验沉淀为可持续执行的智能能力。",
-    highlights: ["销售 Agent", "诊断与方案生成", "多角色协同"],
+      "把企业知识、业务规则与系统工具封装为智能体，让 AI 能理解上下文、执行任务并持续协同，成为真正进入岗位的数字生产力。",
+    highlights: ["专属 Agent", "知识与工具融合", "复杂流程编排"],
   },
   {
     number: "03",
-    title: "OPC 联盟",
-    subtitle: "AI 创业者孵化平台",
+    title: "数据智能解决方案",
+    subtitle: "基于旷湖的大数据开发能力",
     description:
-      "连接工具、课程、实训与生态资源，帮助个人与团队从能力诊断走向产品验证和商业落地。",
-    highlights: ["AI 营销创业赋能", "标准化成长路径", "产教融合生态"],
+      "从数据接入、治理和开发到指标、标签与服务，帮助企业形成可复用的数据资产，为智能体和业务应用提供稳定底座。",
+    highlights: ["多源数据融合", "指标标签体系", "数据资产服务化"],
   },
 ];
 
@@ -57,23 +57,23 @@ const capabilities = [
 ];
 
 const metrics = [
-  ["50,000+", "企业数字生产力提升"],
-  ["30+", "全国服务网点"],
-  ["20+", "高校与职业院校合作"],
-  ["6 万家", "企业增长场景验证"],
+  ["UKing", "域擎 · 企业 AI 解决方案"],
+  ["Agent OS", "太擎 · 企业级智能体开发平台"],
+  ["Data OS", "旷湖 · 大数据开发平台"],
+  ["Drip Growth", "滴灌营销 · 核心业务系统"],
 ];
 
 export default function Home() {
   return (
     <main>
       <header className="site-header">
-        <a className="brand" href="#top" aria-label="太擎首页">
+        <a className="brand" href="#top" aria-label="域擎首页">
           <span className="brand-mark" aria-hidden="true">
             <i />
             <i />
           </span>
-          <span>太擎</span>
-          <small>TUNGEE</small>
+          <span>域擎</span>
+          <small>UKING</small>
         </a>
         <nav className="desktop-nav" aria-label="主导航">
           <a href="#platform">平台能力</a>
@@ -94,16 +94,16 @@ export default function Home() {
         <div className="hero-copy">
           <div className="eyebrow">
             <span />
-            企业级 AI · 数据智能 · 产业生态
+            UKING · 企业 AI 解决方案
           </div>
           <h1>
-            让 AI 进入业务，
+            让 AI 进入企业业务，
             <br />
             <em>重构数字生产力</em>
           </h1>
           <p>
-            太擎以数据智能底座和大模型智能体平台，连接企业数据、知识与流程，
-            为营销增长、产业招商和组织协同提供可落地的智能解决方案。
+            域擎以业务价值为起点，将旷湖的数据开发能力、太擎的企业级智能体开发能力与行业方法论融合，
+            为企业提供真正可落地、可运营的 AI 解决方案。
           </p>
           <div className="hero-actions">
             <a className="primary-button" href="#solutions">
@@ -115,7 +115,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="hero-visual" aria-label="太擎智能平台能力图">
+        <div className="hero-visual" aria-label="域擎企业 AI 解决方案架构图">
           <div className="core-glow" />
           <div className="core-ring ring-a" />
           <div className="core-ring ring-b" />
@@ -125,15 +125,15 @@ export default function Home() {
           </div>
           <div className="satellite sat-a">
             <span>01</span>
-            数据
+            旷湖
           </div>
           <div className="satellite sat-b">
             <span>02</span>
-            模型
+            太擎
           </div>
           <div className="satellite sat-c">
             <span>03</span>
-            场景
+            域擎
           </div>
           <div className="signal signal-a" />
           <div className="signal signal-b" />
@@ -143,11 +143,11 @@ export default function Home() {
         <div className="hero-foot">
           <span>SCROLL TO EXPLORE</span>
           <i />
-          <p>专注于数字生产力的大模型智能体平台</p>
+          <p>专注于让 AI 进入企业业务的解决方案公司</p>
         </div>
       </section>
 
-      <section className="metrics-strip" aria-label="平台关键数据">
+      <section className="metrics-strip" aria-label="域擎品牌与技术架构">
         {metrics.map(([value, label]) => (
           <div className="metric" key={label}>
             <strong>{value}</strong>
@@ -161,13 +161,13 @@ export default function Home() {
           <div>
             <span className="section-kicker">01 / PLATFORM</span>
             <h2>
-              一个底座，
+              两大技术底座，
               <br />
-              驱动每一种智能业务
+              一套企业 AI 解决方案
             </h2>
           </div>
           <p>
-            从数据到模型，再到业务执行，太擎将分散的技术能力组合成可持续演进的企业智能操作系统。
+            旷湖负责数据开发，太擎负责智能体开发，域擎面向企业业务完成咨询、产品与交付，三者各司其职又紧密协同。
           </p>
         </div>
 
@@ -195,9 +195,9 @@ export default function Home() {
       <section className="section capability-section" id="advantages">
         <div className="capability-intro">
           <span className="section-kicker light">02 / AI AGENT</span>
-          <h2>智能体，不止回答问题</h2>
+          <h2>太擎，让智能体不止回答问题</h2>
           <p>
-            它能够理解业务上下文、调用企业工具并持续执行任务，让 AI 从“助手”成为真正的数字员工。
+            作为域擎解决方案的企业级智能体开发平台，太擎让 AI 能够理解业务上下文、调用企业工具并持续执行任务。
           </p>
         </div>
         <div className="capability-grid">
@@ -219,7 +219,7 @@ export default function Home() {
         <div className="section-heading compact">
           <div>
             <span className="section-kicker">03 / SOLUTIONS</span>
-            <h2>从增长场景出发，交付真实结果</h2>
+            <h2>从企业业务出发，交付真实结果</h2>
           </div>
           <p>
             不是展示 AI，而是把 AI 嵌入关键路径，形成可衡量的增长、效率与组织能力。
@@ -262,7 +262,7 @@ export default function Home() {
               效率倍增是结果
             </h2>
             <p>
-              从诊断、方案、部署到运营，太擎以平台能力、行业方法论和持续服务，帮助企业完成从试点到规模化应用。
+              从诊断、方案、部署到运营，域擎组合太擎与旷湖两大技术底座、行业方法论和持续服务，帮助企业完成从试点到规模化应用。
             </p>
           </div>
           <div className="delivery-path" aria-label="交付路径">
@@ -281,28 +281,28 @@ export default function Home() {
       <section className="section ecosystem-section" id="ecosystem">
         <div className="section-heading compact">
           <div>
-            <span className="section-kicker">05 / ECOSYSTEM</span>
-            <h2>连接产业、教育与创新者</h2>
+            <span className="section-kicker">05 / ARCHITECTURE</span>
+            <h2>清晰分工，协同支撑企业 AI 落地</h2>
           </div>
           <p>
-            以开放平台和联合共创机制，推动 AI 技术从企业实践走向更广泛的产业与人才生态。
+            从数据基础、智能体能力到业务交付，域擎构建面向企业结果的完整能力链。
           </p>
         </div>
         <div className="ecosystem-grid">
           <article>
-            <span>INDUSTRY</span>
-            <h3>产业共创</h3>
-            <p>与企业伙伴共同建设场景，沉淀可复制的行业解决方案。</p>
+            <span>SOLUTION</span>
+            <h3>域擎 UKing</h3>
+            <p>公司与主品牌，负责企业 AI 解决方案、行业产品与持续交付。</p>
           </article>
           <article>
-            <span>EDUCATION</span>
-            <h3>产教融合</h3>
-            <p>联合高校与职业院校，共建数字课程、实训体系与人才标准。</p>
+            <span>AGENT PLATFORM</span>
+            <h3>太擎</h3>
+            <p>企业级智能体开发平台，为域擎解决方案提供智能体技术底座。</p>
           </article>
           <article>
-            <span>INNOVATOR</span>
-            <h3>OPC 孵化</h3>
-            <p>为 AI 创业者提供工具、课程、实战项目与商业化支持。</p>
+            <span>DATA PLATFORM</span>
+            <h3>旷湖</h3>
+            <p>大数据开发平台，为域擎解决方案提供可信、可复用的数据底座。</p>
           </article>
         </div>
       </section>
@@ -311,7 +311,7 @@ export default function Home() {
         <div className="cta-grid" aria-hidden="true" />
         <span>BUILD THE NEXT INTELLIGENT BUSINESS</span>
         <h2>
-          与太擎一起，
+          与域擎一起，
           <br />
           开启智能生产力新阶段
         </h2>
@@ -328,16 +328,16 @@ export default function Home() {
             <i />
             <i />
           </span>
-          <span>太擎</span>
-          <small>TUNGEE</small>
+          <span>域擎</span>
+          <small>UKING</small>
         </a>
-        <p>专注于数字生产力解决方案的大模型智能体平台</p>
+        <p>让 AI 进入企业业务的解决方案公司</p>
         <div>
           <a href="#platform">平台能力</a>
           <a href="#solutions">解决方案</a>
           <a href="#ecosystem">合作生态</a>
         </div>
-        <small>© 2026 Tungee Intelligence. All rights reserved.</small>
+        <small>© 2026 UKing Intelligence. All rights reserved.</small>
       </footer>
     </main>
   );
