@@ -57,49 +57,21 @@ a {
 .brand {
   display: inline-flex;
   width: fit-content;
+  min-height: 44px;
   align-items: center;
-  gap: 10px;
-  font-size: 22px;
-  font-weight: 800;
-  letter-spacing: 0.06em;
+  border-radius: 8px;
 }
 
-.brand small {
-  margin-left: -4px;
-  padding-left: 8px;
-  border-left: 1px solid currentColor;
-  font-size: 8px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  opacity: 0.62;
+.brand:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 5px;
 }
 
-.brand-mark {
-  position: relative;
-  display: inline-block;
-  width: 28px;
-  height: 28px;
-  transform: rotate(45deg);
-  border: 2px solid currentColor;
-  border-radius: 7px;
-}
-
-.brand-mark i {
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  border: 2px solid currentColor;
-  border-radius: 2px;
-}
-
-.brand-mark i:first-child {
-  top: 4px;
-  left: 4px;
-}
-
-.brand-mark i:last-child {
-  right: 4px;
-  bottom: 4px;
+.brand-logo {
+  display: block;
+  width: clamp(156px, 14vw, 190px);
+  height: auto;
+  filter: drop-shadow(0 3px 12px rgba(2, 15, 45, 0.32));
 }
 
 .desktop-nav {
@@ -1339,8 +1311,8 @@ footer > small {
 }
 
 @media (max-width: 460px) {
-  .brand small {
-    display: none;
+  .brand-logo {
+    width: 132px;
   }
 
   .header-cta span {

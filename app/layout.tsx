@@ -7,8 +7,9 @@ export const metadata: Metadata = {
   description:
     "域擎提供让 AI 进入企业业务的解决方案，以太擎企业级智能体开发平台和旷湖大数据开发平台为技术底座。",
   icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
   },
   openGraph: {
     title: "域擎 UKing｜让 AI 进入企业业务",

@@ -67,13 +67,14 @@ export default function Home() {
   return (
     <main>
       <header className="site-header">
-        <a className="brand" href="#top" aria-label="域擎首页">
-          <span className="brand-mark" aria-hidden="true">
-            <i />
-            <i />
-          </span>
-          <span>域擎</span>
-          <small>UKING</small>
+        <a className="brand" href="#top" aria-label="域擎 UKing 首页">
+          <img
+            className="brand-logo"
+            src="/logo-uking.png"
+            alt=""
+            width="1400"
+            height="461"
+          />
         </a>
         <nav className="desktop-nav" aria-label="主导航">
           <a href="#platform">平台能力</a>
@@ -323,13 +324,18 @@ export default function Home() {
       </section>
 
       <footer>
-        <a className="brand footer-brand" href="#top">
-          <span className="brand-mark" aria-hidden="true">
-            <i />
-            <i />
-          </span>
-          <span>域擎</span>
-          <small>UKING</small>
+        <a
+          className="brand footer-brand"
+          href="#top"
+          aria-label="返回域擎 UKing 首页"
+        >
+          <img
+            className="brand-logo"
+            src="/logo-uking.png"
+            alt=""
+            width="1400"
+            height="461"
+          />
         </a>
         <p>让 AI 进入企业业务的解决方案公司</p>
         <div>
