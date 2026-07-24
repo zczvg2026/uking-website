@@ -728,18 +728,66 @@ export default function Home() {
       <section className="cta-section" id="contact">
         <div className="cta-grid" aria-hidden="true" />
         <div className="cta-orbit" aria-hidden="true" />
-        <span>START FROM A REAL BUSINESS PROBLEM</span>
-        <h2>
-          不从“想用 AI”开始，
-          <br />
-          从一个值得解决的问题开始
-        </h2>
-        <p>告诉我们业务目标、现场约束与当前系统，一起定义第一条可验证的价值路径。</p>
-        <div className="cta-actions">
-          <a href="mailto:contact@uking.uk">预约业务诊断</a>
-          <a href="#top">返回顶部 ↑</a>
+        <div className="cta-content">
+          <div className="cta-copy">
+            <span>START FROM A REAL BUSINESS PROBLEM</span>
+            <h2>
+              不从“想用 AI”开始，
+              <br />
+              从一个值得解决的问题开始
+            </h2>
+            <p>告诉我们业务目标、现场约束与当前系统，一起定义第一条可验证的价值路径。</p>
+            <div className="cta-actions">
+              <a href="/wecom-contact.jpg" target="_blank" rel="noreferrer">
+                打开企业微信二维码
+              </a>
+              <a href="mailto:contact@uking.uk">邮件联系 ↗</a>
+            </div>
+          </div>
+          <aside className="cta-wecom-card" aria-label="企业微信联系顾问">
+            <img
+              src="/wecom-contact.jpg"
+              alt="域擎企业微信联系二维码"
+              width="750"
+              height="750"
+            />
+            <div className="wecom-card-copy">
+              <span>WE COM · SOLUTION CONSULTANT</span>
+              <strong>添加企业顾问</strong>
+              <p>扫描二维码，沟通业务目标与当前问题。手机端可打开原图后长按识别。</p>
+              <a href="/wecom-contact.jpg" target="_blank" rel="noreferrer">
+                打开二维码原图 ↗
+              </a>
+            </div>
+          </aside>
         </div>
       </section>
+
+      <details className="contact-dock">
+        <summary aria-label="打开企业微信联系二维码">
+          <span aria-hidden="true">企微</span>
+          <b>联系顾问</b>
+        </summary>
+        <div className="contact-popover">
+          <div className="contact-popover-head">
+            <span>WE COM</span>
+            <strong>企业微信咨询</strong>
+          </div>
+          <img
+            src="/wecom-contact.jpg"
+            alt="域擎企业微信联系二维码"
+            width="750"
+            height="750"
+          />
+          <p>微信扫码添加企业顾问；手机端可打开原图后长按识别。</p>
+          <div className="contact-popover-actions">
+            <a href="/wecom-contact.jpg" target="_blank" rel="noreferrer">
+              打开二维码原图
+            </a>
+            <a href="mailto:contact@uking.uk">邮件联系</a>
+          </div>
+        </div>
+      </details>
 
       <footer>
         <div className="footer-main">
@@ -776,6 +824,9 @@ export default function Home() {
         </div>
         <div className="footer-column">
           <strong>联系域擎</strong>
+          <a href="/wecom-contact.jpg" target="_blank" rel="noreferrer">
+            企业微信 · 扫码联系 ↗
+          </a>
           <a href="mailto:contact@uking.uk">contact@uking.uk</a>
           <span>预约企业 AI 业务诊断</span>
         </div>
