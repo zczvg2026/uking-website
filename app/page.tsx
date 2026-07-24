@@ -193,6 +193,7 @@ const organizationSchema = {
   name: "域擎 UKing",
   url: "https://www.uking.uk",
   email: "contact@uking.uk",
+  telephone: "+8617001171717",
   description:
     "域擎 UKing 是企业 AI 解决方案平台，融合太擎企业级智能体能力与旷湖数据工程能力，由 FDE 深入业务现场完成诊断、构建、上线与持续运营。",
 };
@@ -738,10 +739,12 @@ export default function Home() {
             </h2>
             <p>告诉我们业务目标、现场约束与当前系统，一起定义第一条可验证的价值路径。</p>
             <div className="cta-actions">
-              <a href="/wecom-contact.jpg" target="_blank" rel="noreferrer">
-                打开企业微信二维码
+              <a href="tel:+8617001171717" aria-label="拨打域擎咨询电话 17001171717">
+                电话咨询 · 170 0117 1717
               </a>
-              <a href="mailto:contact@uking.uk">邮件联系 ↗</a>
+              <a href="/wecom-contact.jpg" target="_blank" rel="noreferrer">
+                企业微信咨询 ↗
+              </a>
             </div>
           </div>
           <aside className="cta-wecom-card" aria-label="企业微信联系顾问">
@@ -770,8 +773,8 @@ export default function Home() {
         </summary>
         <div className="contact-popover">
           <div className="contact-popover-head">
-            <span>WE COM</span>
-            <strong>企业微信咨询</strong>
+            <span>CONTACT UKING</span>
+            <strong>联系域擎顾问</strong>
           </div>
           <img
             src="/wecom-contact.jpg"
@@ -779,8 +782,15 @@ export default function Home() {
             width="750"
             height="750"
           />
-          <p>微信扫码添加企业顾问；手机端可打开原图后长按识别。</p>
+          <p>可直接拨打咨询电话，或微信扫码添加企业顾问；手机端可打开原图后长按识别。</p>
           <div className="contact-popover-actions">
+            <a
+              className="contact-phone"
+              href="tel:+8617001171717"
+              aria-label="拨打域擎咨询电话 17001171717"
+            >
+              电话咨询 · 170 0117 1717
+            </a>
             <a href="/wecom-contact.jpg" target="_blank" rel="noreferrer">
               打开二维码原图
             </a>
@@ -824,6 +834,9 @@ export default function Home() {
         </div>
         <div className="footer-column">
           <strong>联系域擎</strong>
+          <a href="tel:+8617001171717" aria-label="拨打域擎咨询电话 17001171717">
+            电话 · 170 0117 1717
+          </a>
           <a href="/wecom-contact.jpg" target="_blank" rel="noreferrer">
             企业微信 · 扫码联系 ↗
           </a>
