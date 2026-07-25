@@ -74,9 +74,13 @@ install -m 0644 \
 systemctl daemon-reload
 systemctl enable --now uking-www.service
 
+health_file="/tmp/uking-origin-health.html"
+
 for attempt in {1..20}; do
-  if curl --fail --silent --show-error http://127.0.0.1:3100/ \
-    | grep --quiet "域擎 UKing"; then
+  if curl --fail --silent --show-error \
+    http://127.0.0.1:3100/ \
+    --output "${health_file}" \
+    && grep --quiet "域擎 UKing" "${health_file}"; then
     break
   fi
 
@@ -89,7 +93,9 @@ for attempt in {1..20}; do
 done
 
 systemctl is-active --quiet uking-www.service
-curl --fail --silent --show-error http://127.0.0.1:3100/ \
-  | grep --quiet "170 0117 1717"
+curl --fail --silent --show-error \
+  http://127.0.0.1:3100/ \
+  --output "${health_file}"
+grep --quiet "170 0117 1717" "${health_file}"
 
 echo "UKing website is running at http://127.0.0.1:3100"
