@@ -72,7 +72,8 @@ install -m 0644 \
   /etc/systemd/system/uking-www.service
 
 systemctl daemon-reload
-systemctl enable --now uking-www.service
+systemctl enable uking-www.service
+systemctl restart uking-www.service
 
 health_file="/tmp/uking-origin-health.html"
 
