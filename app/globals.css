@@ -131,8 +131,40 @@ summary:focus-visible {
   width: 22px;
 }
 
-.header-cta {
+.header-actions {
   justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.language-switch {
+  display: inline-flex;
+  min-width: 42px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 12px;
+  border: 1px solid rgba(152, 206, 255, 0.24);
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.72);
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  transition:
+    border-color 0.22s ease,
+    background 0.22s ease,
+    color 0.22s ease;
+}
+
+.language-switch:hover {
+  border-color: rgba(130, 235, 255, 0.7);
+  background: rgba(43, 129, 255, 0.14);
+  color: white;
+}
+
+.header-cta {
   display: inline-flex;
   height: 42px;
   align-items: center;
@@ -366,6 +398,39 @@ summary:focus-visible {
   background-clip: text;
   font-style: normal;
   text-shadow: 0 0 42px rgba(50, 176, 255, 0.13);
+}
+
+.locale-en {
+  font-family:
+    Inter, "Helvetica Neue", Arial, sans-serif;
+}
+
+.locale-en .hero h1 {
+  max-width: 760px;
+  font-size: clamp(48px, 5vw, 76px);
+  letter-spacing: -0.045em;
+  line-height: 1.02;
+}
+
+.locale-en .hero h1 span,
+.locale-en .hero h1 em {
+  white-space: normal;
+}
+
+.locale-en .section-heading h2,
+.locale-en .delivery-intro h2,
+.locale-en .cta-section h2 {
+  font-size: clamp(38px, 4vw, 62px);
+  letter-spacing: -0.045em;
+  line-height: 1.08;
+}
+
+.locale-en .hero-copy > p,
+.locale-en .section-heading > p,
+.locale-en .heading-side > p,
+.locale-en .delivery-intro > p {
+  letter-spacing: 0;
+  line-height: 1.72;
 }
 
 .hero-copy > p {
@@ -2802,7 +2867,7 @@ footer > small {
 
 @media (max-width: 1120px) {
   .site-header {
-    grid-template-columns: 1fr auto auto;
+    grid-template-columns: 1fr auto;
     gap: 16px;
   }
 
@@ -3062,6 +3127,17 @@ footer > small {
   .hero h1 span,
   .hero h1 em {
     white-space: normal;
+  }
+
+  .locale-en .hero h1 {
+    font-size: clamp(40px, 11.5vw, 54px);
+    line-height: 1.02;
+  }
+
+  .locale-en .section-heading h2,
+  .locale-en .delivery-intro h2,
+  .locale-en .cta-section h2 {
+    font-size: clamp(36px, 10vw, 50px);
   }
 
   .hero-actions {

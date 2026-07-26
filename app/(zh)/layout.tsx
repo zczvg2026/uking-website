@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "../globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.uking.uk"),
@@ -8,6 +8,11 @@ export const metadata: Metadata = {
     "域擎融合太擎的企业级智能体能力与旷湖的数据工程能力，由 FDE 深入业务现场，为企业构建可上线、可度量、可持续迭代的 AI 解决方案。",
   alternates: {
     canonical: "/",
+    languages: {
+      "zh-CN": "/",
+      en: "/en",
+      "x-default": "/",
+    },
   },
   icons: {
     icon: "/favicon.png",
@@ -20,6 +25,7 @@ export const metadata: Metadata = {
       "让 AI 进入现场，解决真实问题。融合太擎、旷湖与 FDE 现场交付，为企业构建可持续运行的 AI 业务系统。",
     type: "website",
     locale: "zh_CN",
+    alternateLocale: ["en_US"],
     siteName: "域擎 UKing",
     images: [
       {
@@ -38,7 +44,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default function ChineseLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;

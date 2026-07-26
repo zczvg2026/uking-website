@@ -1,3 +1,5 @@
+import { translate, type SiteLocale } from "./site-translations";
+
 const heroPath = [
   { index: "01", title: "进入现场", en: "DISCOVER" },
   { index: "02", title: "定义目标", en: "DEFINE" },
@@ -198,16 +200,26 @@ const organizationSchema = {
     "域擎 UKing 是企业 AI 解决方案平台，融合太擎企业级智能体能力与旷湖数据工程能力，由 FDE 深入业务现场完成诊断、构建、上线与持续运营。",
 };
 
-export default function Home() {
+export function UKingPage({ locale }: { locale: SiteLocale }) {
+  const t = (text: string) => translate(locale, text);
+  const english = locale === "en";
+  const localizedOrganizationSchema = {
+    ...organizationSchema,
+    name: t(organizationSchema.name),
+    url: english ? "https://www.uking.uk/en" : organizationSchema.url,
+    description: t(organizationSchema.description),
+    inLanguage: english ? "en" : "zh-CN",
+  };
+
   return (
-    <main>
+    <main lang={english ? "en" : "zh-CN"} className={english ? "locale-en" : "locale-zh"}>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localizedOrganizationSchema) }}
       />
 
       <header className="site-header">
-        <a className="brand" href="#top" aria-label="域擎 UKing 首页">
+        <a className="brand" href="#top" aria-label={t("域擎 UKing 首页")}>
           <img
             className="brand-logo"
             src="/logo-uking-header-v3.png"
@@ -217,33 +229,45 @@ export default function Home() {
           />
         </a>
 
-        <nav className="desktop-nav" aria-label="主导航">
-          <a href="#platform">平台</a>
-          <a href="#solutions">解决方案</a>
-          <a href="#drip">滴灌营销</a>
-          <a href="#foundations">技术底座</a>
-          <a href="#delivery">FDE 交付</a>
+        <nav className="desktop-nav" aria-label={t("主导航")}>
+          <a href="#platform">{t("平台")}</a>
+          <a href="#solutions">{t("解决方案")}</a>
+          <a href="#drip">{t("滴灌营销")}</a>
+          <a href="#foundations">{t("技术底座")}</a>
+          <a href="#delivery">{t("FDE 交付")}</a>
         </nav>
 
-        <a className="header-cta" href="#contact">
-          预约业务诊断
-          <span aria-hidden="true">↗</span>
-        </a>
+        <div className="header-actions">
+          <a
+            className="language-switch"
+            href={english ? "/" : "/en"}
+            lang={english ? "zh-CN" : "en"}
+            hrefLang={english ? "zh-CN" : "en"}
+            aria-label={english ? "Switch to Chinese" : "Switch to English"}
+          >
+            {english ? "中文" : "EN"}
+          </a>
 
-        <details className="mobile-menu">
-          <summary aria-label="打开导航菜单">
-            <i />
-            <i />
-          </summary>
-          <nav aria-label="移动端主导航">
-            <a href="#platform">平台</a>
-            <a href="#solutions">解决方案</a>
-            <a href="#drip">滴灌营销</a>
-            <a href="#foundations">技术底座</a>
-            <a href="#delivery">FDE 交付</a>
-            <a href="#contact">预约业务诊断</a>
-          </nav>
-        </details>
+          <a className="header-cta" href="#contact">
+            {t("预约业务诊断")}
+            <span aria-hidden="true">↗</span>
+          </a>
+
+          <details className="mobile-menu">
+            <summary aria-label={t("打开导航菜单")}>
+              <i />
+              <i />
+            </summary>
+            <nav aria-label={t("移动端主导航")}>
+              <a href="#platform">{t("平台")}</a>
+              <a href="#solutions">{t("解决方案")}</a>
+              <a href="#drip">{t("滴灌营销")}</a>
+              <a href="#foundations">{t("技术底座")}</a>
+              <a href="#delivery">{t("FDE 交付")}</a>
+              <a href="#contact">{t("预约业务诊断")}</a>
+            </nav>
+          </details>
+        </div>
       </header>
 
       <section className="hero" id="top">
@@ -260,29 +284,30 @@ export default function Home() {
             UKING · ENTERPRISE AI SOLUTION PLATFORM
           </div>
           <h1>
-            <span>让 AI 进入现场</span>
-            <em>解决真实问题</em>
+            <span>{t("让 AI 进入现场")}</span>
+            <em>{t("解决真实问题")}</em>
           </h1>
           <p>
-            域擎是面向企业的 AI 解决方案平台。我们融合太擎的企业级智能体能力与旷湖的数据工程能力，
-            由 FDE 团队深入业务一线，把复杂问题转化为可上线、可度量、可持续迭代的业务系统。
+            {t(
+              "域擎是面向企业的 AI 解决方案平台。我们融合太擎的企业级智能体能力与旷湖的数据工程能力， 由 FDE 团队深入业务一线，把复杂问题转化为可上线、可度量、可持续迭代的业务系统。",
+            )}
           </p>
           <div className="hero-actions">
             <a className="primary-button" href="#platform">
-              了解域擎平台 <span>→</span>
+              {t("了解域擎平台")} <span>→</span>
             </a>
             <a className="ghost-button" href="#solutions">
-              查看解决方案 <span>↘</span>
+              {t("查看解决方案")} <span>↘</span>
             </a>
           </div>
-          <div className="hero-principles" aria-label="域擎解决方案特点">
-            <span>FDE 深入现场</span>
-            <span>智能体 × 数据双底座</span>
-            <span>从验证到持续运营</span>
+          <div className="hero-principles" aria-label={t("域擎解决方案特点")}>
+            <span>{t("FDE 深入现场")}</span>
+            <span>{t("智能体 × 数据双底座")}</span>
+            <span>{t("从验证到持续运营")}</span>
           </div>
         </div>
 
-        <div className="hero-product" aria-label="域擎企业 AI 解决方案平台示意">
+        <div className="hero-product" aria-label={t("域擎企业 AI 解决方案平台示意")}>
           <div className="product-window">
             <div className="window-bar">
               <div>
@@ -291,62 +316,62 @@ export default function Home() {
                 <i />
               </div>
               <span>UKING / SOLUTION ENGINE</span>
-              <b>IN FIELD</b>
+              <b>IN THE FIELD</b>
             </div>
             <div className="product-status">
               <span>ENTERPRISE AI SOLUTION PLATFORM</span>
-              <strong>从业务问题到持续运行</strong>
-              <small>FDE、数据、智能体与业务流程在同一个价值闭环中协作</small>
+              <strong>{t("从业务问题到持续运行")}</strong>
+              <small>{t("FDE、数据、智能体与业务流程在同一个价值闭环中协作")}</small>
             </div>
             <div className="flow-track">
               {heroPath.map((step) => (
                 <div className="flow-node" key={step.index}>
                   <span>{step.index}</span>
                   <i />
-                  <strong>{step.title}</strong>
+                  <strong>{t(step.title)}</strong>
                   <small>{step.en}</small>
                 </div>
               ))}
             </div>
             <div className="window-footer">
-              <span>FIELD ENGINEERING / 域擎</span>
-              <span>DATA × AGENT / 旷湖 × 太擎</span>
+              <span>{t("FIELD ENGINEERING / 域擎")}</span>
+              <span>{t("DATA × AGENT / 旷湖 × 太擎")}</span>
             </div>
           </div>
           <div className="platform-chip chip-agent">
             <span>AGENT</span>
-            <strong>太擎</strong>
+            <strong>{t("太擎")}</strong>
           </div>
           <div className="platform-chip chip-data">
             <span>DATA</span>
-            <strong>旷湖</strong>
+            <strong>{t("旷湖")}</strong>
           </div>
         </div>
 
         <div className="hero-foot">
           <span>SCROLL TO DISCOVER</span>
           <i />
-          <p>域擎 UKing · 企业 AI 解决方案平台</p>
+          <p>{t("域擎 UKing · 企业 AI 解决方案平台")}</p>
         </div>
       </section>
 
-      <section className="brand-architecture" aria-label="域擎平台架构">
+      <section className="brand-architecture" aria-label={t("域擎平台架构")}>
         <div>
           <span>BUSINESS FIELD</span>
-          <strong>企业业务现场</strong>
-          <small>真实问题、流程、人员与结果指标</small>
+          <strong>{t("企业业务现场")}</strong>
+          <small>{t("真实问题、流程、人员与结果指标")}</small>
         </div>
         <i aria-hidden="true">→</i>
         <div>
           <span>SOLUTION PLATFORM</span>
-          <strong>域擎 UKing</strong>
-          <small>FDE 驱动的解决方案工程与持续运营</small>
+          <strong>{t("域擎 UKing")}</strong>
+          <small>{t("FDE 驱动的解决方案工程与持续运营")}</small>
         </div>
         <i aria-hidden="true">←</i>
         <div>
           <span>TECH FOUNDATIONS</span>
-          <strong>太擎 × 旷湖</strong>
-          <small>企业级智能体与数据工程双底座</small>
+          <strong>{t("太擎 × 旷湖")}</strong>
+          <small>{t("企业级智能体与数据工程双底座")}</small>
         </div>
       </section>
 
@@ -355,14 +380,15 @@ export default function Home() {
           <div>
             <span className="section-kicker">01 / UKING PLATFORM</span>
             <h2>
-              不是交付一个 AI 功能，
+              {t("不是交付一个 AI 功能，")}
               <br />
-              而是建立一套解决问题的机制
+              {t("而是建立一套解决问题的机制")}
             </h2>
           </div>
           <p>
-            企业不缺孤立的 AI 工具，缺的是让模型与数据、知识、流程、人员和目标真正协同的方法。
-            域擎把双技术底座、行业 Know-how 与现场交付组织成一个完整平台。
+            {t(
+              "企业不缺孤立的 AI 工具，缺的是让模型与数据、知识、流程、人员和目标真正协同的方法。 域擎把双技术底座、行业 Know-how 与现场交付组织成一个完整平台。",
+            )}
           </p>
         </div>
 
@@ -370,15 +396,15 @@ export default function Home() {
           <div className="blueprint-head">
             <div>
               <span>BUSINESS SCENES</span>
-              <strong>从企业正在发生的业务开始</strong>
+              <strong>{t("从企业正在发生的业务开始")}</strong>
             </div>
             <ul>
-              <li>销售增长</li>
-              <li>客户服务</li>
-              <li>知识协作</li>
-              <li>运营提效</li>
-              <li>经营决策</li>
-              <li>产业协同</li>
+              <li>{t("销售增长")}</li>
+              <li>{t("客户服务")}</li>
+              <li>{t("知识协作")}</li>
+              <li>{t("运营提效")}</li>
+              <li>{t("经营决策")}</li>
+              <li>{t("产业协同")}</li>
             </ul>
           </div>
 
@@ -389,15 +415,17 @@ export default function Home() {
                 <i />
                 <b>FDE</b>
               </div>
-              <h3>现场解决方案团队</h3>
+              <h3>{t("现场解决方案团队")}</h3>
               <p>
-                与业务负责人、一线人员和技术团队并肩工作，把模糊需求变成可验证、可上线的业务系统。
+                {t(
+                  "与业务负责人、一线人员和技术团队并肩工作，把模糊需求变成可验证、可上线的业务系统。",
+                )}
               </p>
               <ul>
-                <li>进入现场</li>
-                <li>共同定义</li>
-                <li>快速构建</li>
-                <li>持续运营</li>
+                <li>{t("进入现场")}</li>
+                <li>{t("共同定义")}</li>
+                <li>{t("快速构建")}</li>
+                <li>{t("持续运营")}</li>
               </ul>
             </aside>
 
@@ -406,13 +434,13 @@ export default function Home() {
                 <article className={`platform-layer layer-${layer.tone}`} key={layer.code}>
                   <div className="layer-index">0{layerIndex + 1}</div>
                   <div className="layer-copy">
-                    <span>{layer.code}</span>
-                    <h3>{layer.title}</h3>
-                    <p>{layer.description}</p>
+                    <span>{t(layer.code)}</span>
+                    <h3>{t(layer.title)}</h3>
+                    <p>{t(layer.description)}</p>
                   </div>
                   <ul>
                     {layer.items.map((item) => (
-                      <li key={item}>{item}</li>
+                      <li key={item}>{t(item)}</li>
                     ))}
                   </ul>
                 </article>
@@ -422,14 +450,14 @@ export default function Home() {
 
           <div className="blueprint-foot">
             <span>ENTERPRISE CONTEXT</span>
-            <strong>连接企业已有系统与资产</strong>
+            <strong>{t("连接企业已有系统与资产")}</strong>
             <ul>
               <li>CRM / SCRM</li>
               <li>ERP / OA</li>
-              <li>数据仓库</li>
-              <li>知识文档</li>
-              <li>业务工具</li>
-              <li>渠道与终端</li>
+              <li>{t("数据仓库")}</li>
+              <li>{t("知识文档")}</li>
+              <li>{t("业务工具")}</li>
+              <li>{t("渠道与终端")}</li>
             </ul>
           </div>
         </div>
@@ -438,8 +466,8 @@ export default function Home() {
           {platformPrinciples.map((principle) => (
             <article key={principle.index}>
               <span>{principle.index}</span>
-              <h3>{principle.title}</h3>
-              <p>{principle.description}</p>
+              <h3>{t(principle.title)}</h3>
+              <p>{t(principle.description)}</p>
             </article>
           ))}
         </div>
@@ -450,14 +478,15 @@ export default function Home() {
           <div>
             <span className="section-kicker">02 / SOLUTION PORTFOLIO</span>
             <h2>
-              从滴灌营销开始，
+              {t("从滴灌营销开始，")}
               <br />
-              进入更多关键业务场景
+              {t("进入更多关键业务场景")}
             </h2>
           </div>
           <p>
-            域擎不是单一产品。我们从真实问题出发，按场景组合数据、知识、智能体、工作流与运营机制，
-            逐步形成可复用的企业解决方案体系。
+            {t(
+              "域擎不是单一产品。我们从真实问题出发，按场景组合数据、知识、智能体、工作流与运营机制， 逐步形成可复用的企业解决方案体系。",
+            )}
           </p>
         </div>
 
@@ -475,12 +504,12 @@ export default function Home() {
                 <i />
               </div>
               <div className="scene-copy">
-                <small>{scene.subtitle}</small>
-                <h3>{scene.title}</h3>
-                <p>{scene.description}</p>
+                <small>{t(scene.subtitle)}</small>
+                <h3>{t(scene.title)}</h3>
+                <p>{t(scene.description)}</p>
                 <ul>
                   {scene.tags.map((tag) => (
-                    <li key={tag}>{tag}</li>
+                    <li key={tag}>{t(tag)}</li>
                   ))}
                 </ul>
               </div>
@@ -488,7 +517,7 @@ export default function Home() {
           ))}
         </div>
         <p className="solution-note">
-          每个方向都从现场诊断开始，具体能力与范围按企业目标、数据条件和组织流程共同定义。
+          {t("每个方向都从现场诊断开始，具体能力与范围按企业目标、数据条件和组织流程共同定义。")}
         </p>
       </section>
 
@@ -497,17 +526,18 @@ export default function Home() {
           <div>
             <span className="section-kicker">03 / FLAGSHIP · DRIP MARKETING</span>
             <h2>
-              不做大水漫灌，
+              {t("不做大水漫灌，")}
               <br />
-              持续培育每一个机会
+              {t("持续培育每一个机会")}
             </h2>
           </div>
           <div className="heading-side">
             <p>
-              滴灌营销是域擎面向企业销售与营销打造的标杆解决方案，但不是域擎的全部。
-              它把获客、培育、转化、复购、管理和数据反馈连成持续运行的客户经营系统。
+              {t(
+                "滴灌营销是域擎面向企业销售与营销打造的标杆解决方案，但不是域擎的全部。 它把获客、培育、转化、复购、管理和数据反馈连成持续运行的客户经营系统。",
+              )}
             </p>
-            <a href="#contact">预约滴灌营销演示 ↗</a>
+            <a href="#contact">{t("预约滴灌营销演示")} ↗</a>
           </div>
         </div>
 
@@ -516,68 +546,69 @@ export default function Home() {
             <span className="live-label">
               <i /> INTELLIGENT GROWTH LOOP
             </span>
-            <h3>在正确的时间，把正确的内容送给正确的客户</h3>
+            <h3>{t("在正确的时间，把正确的内容送给正确的客户")}</h3>
             <p>
-              客户信号进入系统后，AI 持续完成识别、分层、内容匹配、任务建议与结果回收；
-              人负责规则、例外判断和关键沟通，形成不会因一次活动结束而中断的增长能力。
+              {t(
+                "客户信号进入系统后，AI 持续完成识别、分层、内容匹配、任务建议与结果回收； 人负责规则、例外判断和关键沟通，形成不会因一次活动结束而中断的增长能力。",
+              )}
             </p>
             <ul>
               <li>
                 <span>01</span>
-                动态客户分层与机会识别
+                {t("动态客户分层与机会识别")}
               </li>
               <li>
                 <span>02</span>
-                个性化内容生成与节奏编排
+                {t("个性化内容生成与节奏编排")}
               </li>
               <li>
                 <span>03</span>
-                AI 跟进建议与销售任务协同
+                {t("AI 跟进建议与销售任务协同")}
               </li>
               <li>
                 <span>04</span>
-                全链路反馈回收与效果归因
+                {t("全链路反馈回收与效果归因")}
               </li>
             </ul>
           </div>
 
-          <div className="growth-console" aria-label="滴灌营销系统流程界面示意">
+          <div className="growth-console" aria-label={t("滴灌营销系统流程界面示意")}>
             <div className="console-head">
               <div>
                 <span>UKing</span>
-                <strong>滴灌营销控制台</strong>
+                <strong>{t("滴灌营销控制台")}</strong>
               </div>
-              <b>策略运行中</b>
+              <b>{t("策略运行中")}</b>
             </div>
             <div className="console-body">
               <aside>
-                <span className="active">客户旅程</span>
-                <span>人群分层</span>
-                <span>内容策略</span>
-                <span>智能任务</span>
-                <span>效果归因</span>
+                <span className="active">{t("客户旅程")}</span>
+                <span>{t("人群分层")}</span>
+                <span>{t("内容策略")}</span>
+                <span>{t("智能任务")}</span>
+                <span>{t("效果归因")}</span>
               </aside>
               <div className="journey">
                 <div className="journey-top">
                   <div>
                     <small>CUSTOMER JOURNEY</small>
-                    <strong>高价值客户持续培育</strong>
+                    <strong>{t("高价值客户持续培育")}</strong>
                   </div>
-                  <span>本周期</span>
+                  <span>{t("本周期")}</span>
                 </div>
                 <div className="journey-line" aria-hidden="true">
                   {dripFlow.map((step) => (
                     <div key={step.index}>
                       <span>{step.index}</span>
                       <i />
-                      <strong>{step.title}</strong>
-                      <small>{step.detail}</small>
+                      <strong>{t(step.title)}</strong>
+                      <small>{t(step.detail)}</small>
                     </div>
                   ))}
                 </div>
                 <div className="journey-insight">
                   <span>AI NEXT ACTION</span>
-                  <strong>结合客户最新行为，生成下一轮培育策略与销售任务</strong>
+                  <strong>{t("结合客户最新行为，生成下一轮培育策略与销售任务")}</strong>
                   <i aria-hidden="true">→</i>
                 </div>
               </div>
@@ -589,11 +620,11 @@ export default function Home() {
           {dripModules.map((module) => (
             <article key={module.index}>
               <span>{module.index}</span>
-              <h3>{module.title}</h3>
-              <p>{module.description}</p>
+              <h3>{t(module.title)}</h3>
+              <p>{t(module.description)}</p>
               <ul>
                 {module.items.map((item) => (
-                  <li key={item}>{item}</li>
+                  <li key={item}>{t(item)}</li>
                 ))}
               </ul>
             </article>
@@ -606,14 +637,15 @@ export default function Home() {
           <div>
             <span className="section-kicker">04 / TECHNOLOGY FOUNDATIONS</span>
             <h2>
-              域擎负责解决问题，
+              {t("域擎负责解决问题，")}
               <br />
-              太擎与旷湖提供可靠底座
+              {t("太擎与旷湖提供可靠底座")}
             </h2>
           </div>
           <p>
-            域擎不是简单的技术转售或产品集合。太擎负责智能体开发与执行，旷湖负责数据工程与服务，
-            域擎则把两者转化为面向具体业务结果的解决方案。
+            {t(
+              "域擎不是简单的技术转售或产品集合。太擎负责智能体开发与执行，旷湖负责数据工程与服务， 域擎则把两者转化为面向具体业务结果的解决方案。",
+            )}
           </p>
         </div>
 
@@ -627,7 +659,7 @@ export default function Home() {
               key={foundation.title}
             >
               <div className="foundation-meta">
-                <span>{foundation.code}</span>
+                <span>{t(foundation.code)}</span>
                 <i aria-hidden="true">↗</i>
               </div>
               <div className="foundation-visual" aria-hidden="true">
@@ -635,23 +667,27 @@ export default function Home() {
                 <div className="foundation-orbit orbit-inner" />
                 <div className="foundation-core">
                   <small>{foundation.code.split(" ")[0]}</small>
-                  <strong>{foundation.title}</strong>
+                  <strong>{t(foundation.title)}</strong>
                 </div>
                 <span className="foundation-node node-one" />
                 <span className="foundation-node node-two" />
                 <span className="foundation-node node-three" />
               </div>
               <div className="foundation-copy">
-                <span>{foundation.label}</span>
-                <h3>{foundation.title}</h3>
-                <p>{foundation.description}</p>
+                <span>{t(foundation.label)}</span>
+                <h3>{t(foundation.title)}</h3>
+                <p>{t(foundation.description)}</p>
                 <ul>
                   {foundation.capabilities.map((capability) => (
-                    <li key={capability}>{capability}</li>
+                    <li key={capability}>{t(capability)}</li>
                   ))}
                 </ul>
               </div>
-              <div className="foundation-link">了解{foundation.title}平台能力</div>
+              <div className="foundation-link">
+                {english
+                  ? `Explore the ${t(foundation.title)} platform`
+                  : `了解${foundation.title}平台能力`}
+              </div>
             </a>
           ))}
         </div>
@@ -661,68 +697,69 @@ export default function Home() {
         <div className="delivery-intro">
           <span className="section-kicker">05 / FORWARD DEPLOYED ENGINEERING</span>
           <h2>
-            把 AI 送进现场，
+            {t("把 AI 送进现场，")}
             <br />
-            直到业务真正运行
+            {t("直到业务真正运行")}
           </h2>
           <p>
-            FDE（Forward Deployed Engineer）不是远程交付一个标准答案。
-            域擎 FDE 与企业团队并肩工作，从发现问题、构建方案到生产上线和持续运营，对业务结果负责。
+            {t(
+              "FDE（Forward Deployed Engineer）不是远程交付一个标准答案。 域擎 FDE 与企业团队并肩工作，从发现问题、构建方案到生产上线和持续运营，对业务结果负责。",
+            )}
           </p>
           <div className="delivery-manifesto">
             <span>OUR APPROACH</span>
-            <strong>先让业务系统有效，再让 AI 放大效率。</strong>
+            <strong>{t("先让业务系统有效，再让 AI 放大效率。")}</strong>
           </div>
         </div>
 
         <div className="delivery-work">
-          <div className="delivery-path" aria-label="域擎 FDE 现场交付路径">
+          <div className="delivery-path" aria-label={t("域擎 FDE 现场交付路径")}>
             {deliverySteps.map(([index, title, description]) => (
               <div key={index}>
                 <span>{index}</span>
                 <i />
-                <strong>{title}</strong>
-                <p>{description}</p>
+                <strong>{t(title)}</strong>
+                <p>{t(description)}</p>
               </div>
             ))}
           </div>
           <div className="delivery-output">
             <div>
               <span>REUSABLE ASSETS</span>
-              <strong>每次交付，都沉淀为企业可以继续使用的能力</strong>
+              <strong>{t("每次交付，都沉淀为企业可以继续使用的能力")}</strong>
             </div>
             <ul>
               {deliveryAssets.map((asset) => (
-                <li key={asset}>{asset}</li>
+                <li key={asset}>{t(asset)}</li>
               ))}
             </ul>
           </div>
         </div>
       </section>
 
-      <section className="capability-loop" aria-label="域擎能力沉淀闭环">
+      <section className="capability-loop" aria-label={t("域擎能力沉淀闭环")}>
         <div>
           <span>01 / FIELD</span>
-          <strong>现场问题</strong>
-          <p>来自真实岗位、流程和经营目标</p>
+          <strong>{t("现场问题")}</strong>
+          <p>{t("来自真实岗位、流程和经营目标")}</p>
         </div>
         <i aria-hidden="true">→</i>
         <div>
           <span>02 / SOLUTION</span>
-          <strong>可运行方案</strong>
-          <p>数据、智能体与人机协作共同上线</p>
+          <strong>{t("可运行方案")}</strong>
+          <p>{t("数据、智能体与人机协作共同上线")}</p>
         </div>
         <i aria-hidden="true">→</i>
         <div>
           <span>03 / FEEDBACK</span>
-          <strong>结果回流</strong>
-          <p>以真实执行数据复盘和验证</p>
+          <strong>{t("结果回流")}</strong>
+          <p>{t("以真实执行数据复盘和验证")}</p>
         </div>
         <i aria-hidden="true">→</i>
         <div>
           <span>04 / PLATFORM</span>
-          <strong>平台沉淀</strong>
-          <p>形成可复用的场景与能力资产</p>
+          <strong>{t("平台沉淀")}</strong>
+          <p>{t("形成可复用的场景与能力资产")}</p>
         </div>
       </section>
 
@@ -733,33 +770,36 @@ export default function Home() {
           <div className="cta-copy">
             <span>START FROM A REAL BUSINESS PROBLEM</span>
             <h2>
-              不从“想用 AI”开始，
+              {t("不从“想用 AI”开始，")}
               <br />
-              从一个值得解决的问题开始
+              {t("从一个值得解决的问题开始")}
             </h2>
-            <p>告诉我们业务目标、现场约束与当前系统，一起定义第一条可验证的价值路径。</p>
+            <p>{t("告诉我们业务目标、现场约束与当前系统，一起定义第一条可验证的价值路径。")}</p>
             <div className="cta-actions">
-              <a href="tel:+8617001171717" aria-label="拨打域擎咨询电话 17001171717">
-                电话咨询 · 170 0117 1717
+              <a
+                href="tel:+8617001171717"
+                aria-label={t("拨打域擎咨询电话 17001171717")}
+              >
+                {t("电话咨询 · 170 0117 1717")}
               </a>
               <a href="/wecom-contact.jpg" target="_blank" rel="noreferrer">
-                企业微信咨询 ↗
+                {t("企业微信咨询")} ↗
               </a>
             </div>
           </div>
-          <aside className="cta-wecom-card" aria-label="企业微信联系顾问">
+          <aside className="cta-wecom-card" aria-label={t("企业微信联系顾问")}>
             <img
               src="/wecom-contact.jpg"
-              alt="域擎企业微信联系二维码"
+              alt={t("域擎企业微信联系二维码")}
               width="750"
               height="750"
             />
             <div className="wecom-card-copy">
               <span>WE COM · SOLUTION CONSULTANT</span>
-              <strong>添加企业顾问</strong>
-              <p>扫描二维码，沟通业务目标与当前问题。手机端可打开原图后长按识别。</p>
+              <strong>{t("添加企业顾问")}</strong>
+              <p>{t("扫描二维码，沟通业务目标与当前问题。手机端可打开原图后长按识别。")}</p>
               <a href="/wecom-contact.jpg" target="_blank" rel="noreferrer">
-                打开二维码原图 ↗
+                {t("打开二维码原图")} ↗
               </a>
             </div>
           </aside>
@@ -767,41 +807,41 @@ export default function Home() {
       </section>
 
       <details className="contact-dock">
-        <summary aria-label="打开企业微信联系二维码">
-          <span aria-hidden="true">企微</span>
-          <b>联系顾问</b>
+        <summary aria-label={t("打开企业微信联系二维码")}>
+          <span aria-hidden="true">{t("企微")}</span>
+          <b>{t("联系顾问")}</b>
         </summary>
         <div className="contact-popover">
           <div className="contact-popover-head">
             <span>CONTACT UKING</span>
-            <strong>联系域擎顾问</strong>
+            <strong>{t("联系域擎顾问")}</strong>
           </div>
           <img
             src="/wecom-contact.jpg"
-            alt="域擎企业微信联系二维码"
+            alt={t("域擎企业微信联系二维码")}
             width="750"
             height="750"
           />
-          <p>可直接拨打咨询电话，或微信扫码添加企业顾问；手机端可打开原图后长按识别。</p>
+          <p>{t("可直接拨打咨询电话，或微信扫码添加企业顾问；手机端可打开原图后长按识别。")}</p>
           <div className="contact-popover-actions">
             <a
               className="contact-phone"
               href="tel:+8617001171717"
-              aria-label="拨打域擎咨询电话 17001171717"
+              aria-label={t("拨打域擎咨询电话 17001171717")}
             >
-              电话咨询 · 170 0117 1717
+              {t("电话咨询 · 170 0117 1717")}
             </a>
             <a href="/wecom-contact.jpg" target="_blank" rel="noreferrer">
-              打开二维码原图
+              {t("打开二维码原图")}
             </a>
-            <a href="mailto:contact@uking.uk">邮件联系</a>
+            <a href="mailto:contact@uking.uk">{t("邮件联系")}</a>
           </div>
         </div>
       </details>
 
       <footer>
         <div className="footer-main">
-          <a className="brand footer-brand" href="#top" aria-label="返回域擎 UKing 首页">
+          <a className="brand footer-brand" href="#top" aria-label={t("返回域擎 UKing 首页")}>
             <img
               className="brand-logo"
               src="/logo-uking-header-v3.png"
@@ -811,37 +851,40 @@ export default function Home() {
             />
           </a>
           <p>
-            域擎 UKing
+            {t("域擎 UKing")}
             <br />
-            FDE 驱动的企业 AI 解决方案平台
+            {t("FDE 驱动的企业 AI 解决方案平台")}
           </p>
         </div>
         <div className="footer-column">
-          <strong>网站导航</strong>
-          <a href="#platform">域擎平台</a>
-          <a href="#solutions">解决方案</a>
-          <a href="#drip">滴灌营销</a>
-          <a href="#delivery">FDE 现场交付</a>
+          <strong>{t("网站导航")}</strong>
+          <a href="#platform">{t("域擎平台")}</a>
+          <a href="#solutions">{t("解决方案")}</a>
+          <a href="#drip">{t("滴灌营销")}</a>
+          <a href="#delivery">{t("FDE 现场交付")}</a>
         </div>
         <div className="footer-column">
-          <strong>关联技术平台</strong>
+          <strong>{t("关联技术平台")}</strong>
           <a href="https://hanpaas.com/" target="_blank" rel="noreferrer">
-            太擎 · 智能体开发平台 ↗
+            {t("太擎 · 智能体开发平台")} ↗
           </a>
           <a href="https://www.handaas.com/" target="_blank" rel="noreferrer">
-            旷湖 · 大数据开发平台 ↗
+            {t("旷湖 · 大数据开发平台")} ↗
           </a>
         </div>
         <div className="footer-column">
-          <strong>联系域擎</strong>
-          <a href="tel:+8617001171717" aria-label="拨打域擎咨询电话 17001171717">
-            电话 · 170 0117 1717
+          <strong>{t("联系域擎")}</strong>
+          <a
+            href="tel:+8617001171717"
+            aria-label={t("拨打域擎咨询电话 17001171717")}
+          >
+            {t("电话 · 170 0117 1717")}
           </a>
           <a href="/wecom-contact.jpg" target="_blank" rel="noreferrer">
-            企业微信 · 扫码联系 ↗
+            {t("企业微信 · 扫码联系")} ↗
           </a>
           <a href="mailto:contact@uking.uk">contact@uking.uk</a>
-          <span>预约企业 AI 业务诊断</span>
+          <span>{t("预约企业 AI 业务诊断")}</span>
         </div>
         <small>© 2026 UKing Intelligence. All rights reserved.</small>
       </footer>
